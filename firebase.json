@@ -1,0 +1,21 @@
+{
+  "hosting": [{
+    "site": "rajivkhushiam",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  { 
+    "site": "portfolio-project-7e999",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+
+   ]
+  }]
+}
