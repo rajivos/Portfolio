@@ -7,4 +7,4 @@ steps:
   args: ['run', 'build']
 # Deploy
 - name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '--only', 'hosting:portfolio-project-7e999']
+  args: [ 'deploy', '--only', 'hosting:rajivkhushiam']
