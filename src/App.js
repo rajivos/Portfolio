@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import LandingPage from './components/LandingPage'
+import { connect } from 'react-redux';
 
-function App() {
-  return (
+
+class App extends Component {
+  render() {
+    // const { auth } = this.props;
+
+    return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         Rajiv Khushiram
-        </p>
-        <a
-          className="App-link"
-          href="https://github.com/Rajiv-Khushiram/Portfolio"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-         CI of React-Redux-Firebase Web App. 
-        </a>
-      </header>
+      <Switch>
+        <Route path='/' component={LandingPage} />
+        {/* <ProtectedRoute isAllowed = {auth.uid} exact path='/' component={ReviewForm} />
+        <ProtectedRoute isAllowed = {auth.uid} exact path='/new-review' component={ReviewForm} />
+        <ProtectedRoute isAllowed = {auth.uid} exact path='/review-form-success' component={SuccessReviewForm} />
+        <ProtectedRoute isAllowed = {auth.uid} exact path='/all-photos' component={AllPhotos} />            
+        <ProtectedRoute isAllowed = {auth.uid} exact path='/settings' component={Settings} />            
+        <ProtectedRoute isAllowed = {auth.uid} exact path='/debug' component={Debug} />            
+        <ProtectedRoute isAllowed = {auth.uid} exact path='/sms-campaign' component={TargetCustomerPage} />             */}
+        {/* <Route path='/signin' component={SignIn} /> */}
+      </Switch>
     </div>
+  </BrowserRouter>
   );
 }
+}
 
-export default App;
+const mapStateToProps = (state) => {
+  return{
+      auth:state.firebase.auth,
+  }
+}
+
+export default connect(mapStateToProps, null)(App);
