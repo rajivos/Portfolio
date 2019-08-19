@@ -5,7 +5,9 @@
     
     "public": "build",
     "headers": [
-      { "source":"/service-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}] }
+      { "source":"**/*.html", "headers": [{"key": "Cache-Control", "value": "max-age=0, no-chache"}] },
+      { "source":"**/*.@(jpg|jpeg|gif|png)","headers": [{"key": "Cache-Control","value": "max-age=3300" }] },
+      { "source":"**/*.@(css|js)","headers": [{"key": "Cache-Control","value": "max-age=3500" }] }
     ],
     "ignore": [
       "firebase.json",
