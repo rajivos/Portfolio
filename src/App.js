@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import LandingPage from './components/LandingPage'
-import { connect } from 'react-redux';
+import ContactPage from './components/ContactPage'
+//import { connect } from 'react-redux';
 
 
 class App extends Component {
@@ -13,7 +14,10 @@ class App extends Component {
     <BrowserRouter>
     <div className="App">
       <Switch>
-        <Route path='/' component={LandingPage} />
+      {/* //  <Route path='/' component={LandingPage} /> */}
+        <Route exact path='/contact' component={ContactPage} />
+        <Route exact path='/' component={LandingPage} /> 
+        
         {/* <ProtectedRoute isAllowed = {auth.uid} exact path='/' component={ReviewForm} />
         <ProtectedRoute isAllowed = {auth.uid} exact path='/new-review' component={ReviewForm} />
         <ProtectedRoute isAllowed = {auth.uid} exact path='/review-form-success' component={SuccessReviewForm} />
@@ -29,10 +33,6 @@ class App extends Component {
 }
 }
 
-const mapStateToProps = (state) => {
-  return{
-      auth:state.firebase.auth,
-  }
-}
 
-export default connect(mapStateToProps, null)(App);
+
+export default App;

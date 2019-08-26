@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import React, { Component, createRef } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Link, withRouter  } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import {
   Button,
   Container,
-  Divider,
+ // Divider,
   Grid,
   Header,
   Icon,
@@ -173,7 +174,7 @@ class DesktopContainer extends Component {
                     animation="fade down"
                     duration={1000}
                   >
-                    <Menu.Item as="a" active>
+                     <Menu.Item as="a" active>
                       Home
                     </Menu.Item>
                   </Transition>
@@ -182,7 +183,16 @@ class DesktopContainer extends Component {
                     animation="fade down"
                     duration={1500}
                   >
-                    <Menu.Item as="a">Work</Menu.Item>
+                   <Menu.Item as="a">Work</Menu.Item>
+                  </Transition>
+                  <Transition
+                    visible={calculations.topPassed}
+                    animation="fade down"
+                    duration={1000}
+                  >
+          <Link to='/contact'> <Menu.Item active>
+            Contacts
+                    </Menu.Item></Link> 
                   </Transition>
                   <Transition
                     visible={calculations.topPassed}
@@ -357,6 +367,9 @@ class HomepageLayout extends Component {
                       and empower your needs... through pure data analytics.
                     </p>
                   </Transition>
+
+
+         
                   <Transition
                     visible={calculations.onScreen}
                     animation="fade up"
@@ -451,7 +464,7 @@ const mapStateProps = state => {
 //     // };
 //   };
 
-export default connect(
+export default withRouter(connect(
   mapStateProps,
   null
-)(HomepageLayout);
+)(HomepageLayout));
